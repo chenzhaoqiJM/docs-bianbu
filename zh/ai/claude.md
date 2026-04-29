@@ -38,7 +38,7 @@ sudo apt install npm
 ### 1.2. 安装 Claude Code
 
 ```bash
-sudo npm i --registry=http://nexus.bianbu.xyz/repository/npmproxy/ -g @anthropic-ai/claude-code
+sudo npm i --registry=http://nexus.bianbu.xyz/repository/npmproxy/ -g @anthropic-ai/claude-code@2.1.112
 ```
 
 验证安装:
