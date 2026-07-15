@@ -96,7 +96,8 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 
 **问题1: 点击"开始烧录"立即弹窗提示"设备不存在"**
 
-**报错示例：**
+报错示例
+
 ![报错示例](static/FAQ29.png)
 ![报错示例](static/FAQ30.png)
 
@@ -110,7 +111,8 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 
 **问题2: 点击"开始烧录"成功进入烧录但立马失败**
 
-**报错示例：**
+报错示例
+
 ![报错示例](static/FAQ31.png)
 ![报错示例](static/FAQ32.png)
 
@@ -125,6 +127,7 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 **问题3: 烧录过程中出现烧写失败**
 
 报错示例
+
 ![报错示例](static/FAQ7.png)
 ![报错示例](static/FAQ17.png)
 
@@ -135,6 +138,7 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 **问题4: 点击烧录立即报"烧写失败"，无任何详细信息**
 
 报错示例
+
 ![烧写失败示例](static/FAQ10.png)
 ![烧写失败示例](static/FAQ16.png)
 
@@ -148,9 +152,11 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 ![路径示例](static/FAQ9.png)
 
 **正确路径示例：**
+
 ![路径示例](static/FAQ24.png)
 
 **烧写成功状态**
+
 ![示例](static/FAQ27.png)
 ![示例](static/FAQ28.png)
 
