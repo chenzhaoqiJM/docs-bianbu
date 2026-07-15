@@ -53,12 +53,16 @@ sudo docker stop <container_id>
 
 ```Dockerfile
 # Dockerfile
-FROM harbor.spacemit.com/bianbu/bianbu:latest
+FROM harbor.spacemit.com/bianbu/bianbu:2.3.3
 RUN apt-get update && apt-get install -y python3
 COPY . /app
 WORKDIR /app
 CMD ["python3", "app.py"]
 ```
+
+`harbor.spacemit.com/bianbu/bianbu:latest` currently points to Bianbu 4.0 and uses RVA23 instructions, so it can only run on K3.
+
+For K1, use a `bianbu:2.x` image explicitly, for example `harbor.spacemit.com/bianbu/bianbu:2.3.3`.
 
 [Detailed Dockerfile Syntax](https://docs.docker.com/reference/dockerfile/)
 

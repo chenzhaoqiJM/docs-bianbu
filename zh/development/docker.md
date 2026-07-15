@@ -53,12 +53,16 @@ sudo docker stop <容器ID>
 
 ```Dockerfile
 # Dockerfile
-FROM harbor.spacemit.com/bianbu/bianbu:latest
+FROM harbor.spacemit.com/bianbu/bianbu:2.3.3
 RUN apt-get update && apt-get install -y python3
 COPY . /app
 WORKDIR /app
 CMD ["python3", "app.py"]
 ```
+
+`harbor.spacemit.com/bianbu/bianbu:latest` 当前指向 Bianbu 4.0，并使用了 RVA23 指令，因此只能在 K3 上运行。
+
+如果是 K1，请显式指定 `bianbu:2.x` 镜像，例如 `harbor.spacemit.com/bianbu/bianbu:2.3.3`。
 
 [Dockerfile语法详细介绍](https://docs.docker.com/reference/dockerfile/)
 
