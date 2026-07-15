@@ -1,6 +1,6 @@
 # 常见问题解答（FAQ）
 
-本文档记录使用 MUSE Pi Pro 开发板进行远程连接时的常见问题及解决方法。
+本文档记录使用 MUSE Pi Pro 开发板过程中的常见问题及解决方法，涵盖烧录、供电和 WiFi 连接等场景。
 ---
 
 ## 烧录问题
@@ -17,7 +17,7 @@
 
 **Step1: 开发板进入烧录模式并连接电脑**
 
-<a id="step1-操作步骤"></a>
+<a id="step1-operation-steps"></a>
 **操作步骤：**
 1. 长按 **FDL** 按键（不要松开）
 2. 同时短按 **RST**（复位）按键（绿灯将会闪烁一次）
@@ -25,7 +25,6 @@
 4. 用数据线连接开发板和电脑
 
 ![开发板示例](static/FAQ4.png)
-![开发板示例](static/FAQ12.png)
 
 **验证是否成功进入烧录模式：**
 
@@ -37,7 +36,6 @@
 
 下方为扫描设备成功示例图（扫描设备有值）
 ![开发板示例](static/FAQ20.png)
-![开发板示例](static/FAQ19.png)
 
 **方法二：使用系统命令验证**
 
@@ -56,9 +54,8 @@ lsusb
 
 下方为扫描设备失败示例图（扫描设备为空）
 ![开发板示例](static/FAQ21.png)
-![开发板示例](static/FAQ22.png)
 
-1. **重新进入烧录模式**：重复[上述操作步骤](#step1-操作步骤)（长按 FDL + 短按 RST）
+1. **重新进入烧录模式**：重复[上述操作步骤](#step1-operation-steps)（长按 FDL + 短按 RST）
 
 2. **更换电脑 USB 接口**：优先使用主板直连的 USB 口，避免使用 USB Hub 或扩展坞
 
@@ -86,7 +83,6 @@ lsusb
 https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianbu
 
 ![下载示例](static/FAQ6.png)
-![下载示例](static/FAQ18.png)
 
 ---
 
@@ -99,13 +95,12 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 报错示例
 
 ![报错示例](static/FAQ29.png)
-![报错示例](static/FAQ30.png)
 
 **原因：** 扫描设备成功后，USB 数据线松动或被拔出，导致设备连接断开
 
 **解决方法：** 
 1. 检查数据线是否插紧
-2. [重新进入烧录模式](#step1-操作步骤)
+2. [重新进入烧录模式](#step1-operation-steps)
 3. 在 Titan 工具中点击"刷新设备"或"扫描设备"
 4. 确认设备识别成功后，**避免触碰数据线**，立即点击"开始烧录"
 
@@ -114,22 +109,20 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 报错示例
 
 ![报错示例](static/FAQ31.png)
-![报错示例](static/FAQ32.png)
 
 **原因：** 扫描设备成功并点击进入烧录成功后，USB 数据线松动，导致设备连接断开
 
 **解决方法：** 
 1. 检查数据线是否插紧
-2. [重新进入烧录模式](#step1-操作步骤)
+2. [重新进入烧录模式](#step1-operation-steps)
 3. 在 Titan 工具中点击"刷新设备"或"扫描设备"
-4. 确认设备识别成功并成功进入烧录后，**避免触碰数据线**，
+4. 确认设备识别成功并成功进入烧录后，**避免触碰数据线**
 
 **问题3: 烧录过程中出现烧写失败**
 
 报错示例
 
 ![报错示例](static/FAQ7.png)
-![报错示例](static/FAQ17.png)
 
 **原因：** 烧录时数据线松动或接触不良
 
@@ -140,7 +133,6 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 报错示例
 
 ![烧写失败示例](static/FAQ10.png)
-![烧写失败示例](static/FAQ16.png)
 
 **原因：** 镜像文件路径包含空格或特殊字符 `()`
 
@@ -157,18 +149,16 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 
 **烧写成功状态**
 
-![示例](static/FAQ27.png)
 ![示例](static/FAQ28.png)
 
 ### **阶段三：烧录成功但系统异常**
 
-> **情况说明：** 若烧录成功后遇到 USB 接口不供电、MIPI 屏幕无显示等问题，可能原因是写号配置错误。请参考下方 [Step1: 确认开发板型号配置正确](#step1-写号配置) 进行排查。
+> **情况说明：** 若烧录成功后遇到 USB 接口不供电、MIPI 屏幕无显示等问题，可能原因是写号配置错误。请参考下方 [Step1: 确认开发板型号配置正确](#step1-board-model-config) 进行排查。
 
-<a id="step1-写号配置"></a>
+<a id="step1-board-model-config"></a>
 **Step1: 确认开发板型号配置正确**
 
 ![错误示例](static/FAQ8.png)
-![错误示例](static/FAQ13.png)
 
 > **重要提示**：切勿随意进行写号
 
@@ -183,11 +173,10 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 
 **若已经写号错误，如何恢复？**
 
-1. **重新进入烧录模式**：[按照 Step1 操作步骤](#step1-操作步骤)进入烧录模式
+1. **重新进入烧录模式**：[按照 Step1 操作步骤](#step1-operation-steps)进入烧录模式
 2. **扫描设备**在写号工具当中填写正确的值并选择正确的存储介质（若不知道具体的值与存储介质，可询问客服）
 
 ![示例](static/FAQ25.png)
-![示例](static/FAQ26.png)
 
 
 3. **重新烧录镜像**
