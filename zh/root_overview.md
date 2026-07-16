@@ -93,8 +93,9 @@ Linux 内核负责管理处理器和其他硬件资源，提供用户和应用�
 
 支持版本与源码链接：
 
-- 6.1： [https://gitee.com/spacemit-buildroot/linux-6.1](https://gitee.com/spacemit-buildroot/linux-6.1) (已停止维护 EOL)
-- 6.6： [https://gitee.com/spacemit-buildroot/linux-6.6](https://gitee.com/spacemit-buildroot/linux-6.6) (长期支持 LTS)
+- 6.1： [[gitee]](https://gitee.com/spacemit-buildroot/linux-6.1) (已停止维护 EOL)
+- 6.6： [[gitee]](https://gitee.com/spacemit-buildroot/linux-6.6) / [[github]](https://github.com/spacemit-com/linux-6.6)(长期支持 LTS)
+- 6.18： [[gitee]](https://gitee.com/spacemit-buildroot/linux-6.18) / [[github]](https://github.com/spacemit-com/linux-6.18)
 
 ### U-Boot
 
@@ -102,17 +103,21 @@ U-Boot 是一个引导加载程序，负责初始化特定硬件，从介质（�
 
 - 版本：u-boot-2022.10
 
-- 源码：[https://gitee.com/spacemit-buildroot/uboot-2022.10](https://gitee.com/spacemit-buildroot/uboot-2022.10)
+- 源码：[[gitee]](https://gitee.com/spacemit-buildroot/uboot-2022.10) / [[github]](https://github.com/spacemit-com/uboot-2022.10)
 
 ### OpenSBI
 
 OpenSBI 是 RISC-V 架构处理器的监管程序接口的实现，运行在 M 模式下的固件，提供引导加载程序、hypervisor、操作系统访问硬件的接口。
 
-- 版本：1.3
+支持版本与源码链接：
 
-- 源码：[https://gitee.com/spacemit-buildroot/opensbi](https://gitee.com/spacemit-buildroot/opensbi)
+- 1.3: [[gitee]](https://gitee.com/spacemit-buildroot/opensbi) / [[github]](https://github.com/spacemit-com/opensbi)
+
+- 1.6: [[gitee]](https://gitee.com/spacemit-buildroot/opensbi/tree/k3-br-v1.0.y/) / [[github]](https://github.com/spacemit-com/opensbi/tree/k3-br-v1.0.y)
 
 ## 支持的设备
+
+### K1
 
 - BPI-F3
 - Milk-V Jupiter
@@ -122,16 +127,20 @@ OpenSBI 是 RISC-V 架构处理器的监管程序接口的实现，运行在 M �
 - MUSE Box
 - MUSE Book
 
+### K3
+
+- Pico ITX
+- CoM260 Kit
+
 ## 版本信息
 
-- Bianbu 1.0 【已经停止维护】
-  最新版本：v1.0.15
+- [Bianbu 1.0](./release_notes/history/bianbu_1.0.md) 【已经停止维护】
 
-- Bianbu 2.x 【K1长期维护版本】
-  最新版本：v2.2.1
+- [Bianbu 2.x](./release_notes/bianbu_2.3.md) 【K1长期维护版本】
 
-- Bianbu 3.x
-  最新版本：v3.0.1
+- [Bianbu 3.x](./release_notes/history/bianbu_3.0.md)
+
+- [Bianbu 4.x](./release_notes/bianbu_4.0.md)【仅支持K3】
 
 ## 问题反馈渠道
 

@@ -19,54 +19,69 @@ Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
 - This source provides packages for all future 2.3.x versions (e.g., 2.3.1), which are hosted in `bianbu-v2.3-updates`.  
 - To download source packages, modify `Types: deb` to `Types: deb deb-src`.
 
+## V2.3.5
+
+**Release Date:** 2026-06-09
+
+The corresponding **BSP version**: [v2.2.9](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k1_buildroot/release_notes/bl-v2.2.y.md)
+
+### Major updates to LXQt desktop components
+
+1. **UI**
+  
+   - Refined the Calamares installer interface for compatibility with low-resolution screens.
+ 
+   - Improved the login interface for compatibility with low-resolution screens.
+  
+   - Optimized workspace switching animation.
+
+2. **Applications**
+
+   - Introduced the in-house developed Bianbu Control Center, featuring modules for appearance, language, desktop, notifications, and about.
+
+
+
 ## V2.3.3
 
 **Release Date:** 2026-03-02
 
-The corresponding **BSP version:** [v2.2.9](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k1_buildroot/release_notes/bl-v2.2.y.md)
+The corresponding **BSP version**: [v2.2.9](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k1_buildroot/release_notes/bl-v2.2.y.md)
 
 ### Major updates to LXQt desktop components
 
-**1. UI**
+1. **UI**
 
-- Refined the Calamares installer interface
+   - Refined the Calamares installer interface
 
-- Improved the login interface
+   - Improved the login interface
 
-**2. Applications**
+2. **Applications**
 
-- Introduced the in-house developed Bianbu Control Center, featuring modules for user management, Bluetooth, network, Wi-Fi, power, volume, display, and time settings.
+   - Introduced the in-house developed Bianbu Control Center, featuring modules for user management, Bluetooth, network, Wi-Fi, power, volume, display, and time settings.
 
 ## V2.3.0
 
 **Release Date:** 2025-12-15
 
-The corresponding **BSP version:** [v2.2](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/release_notes/bl-v2.2.y.md)
+The corresponding **BSP version**: [v2.2](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/release_notes/bl-v2.2.y.md)
 
 ### Major updates to LXQt desktop components
 
-**1. UI**
+1. **UI**
 
-- Optimized status bar user experience
+   - Optimized status bar user experience
+   - Customized Calamares installer interface
+   - Added SpacemiT SDDM theme
+   - Simplified Panel operations
+   - Simplified file browser operations
+   - Added Wayland lock screen support
+   - Added SpacemiT Qt system theme
 
-- Customized Calamares installer interface
+2. **Applications**
 
-- Support for Bianbu Star SDDM theme
+   - Added support for Yongzhong Office (installable)
 
-- Simplified Panel operations
+3. **Performance**
 
-- Simplified file browser operations
-
-- Support for Wayland lock screen application
-
-- Support for Bianbu Star Qt system theme
-
-**2. Applications**
-
-- Support for Yongzhong Office (installable)
-
-**3. Performance**
-
-- Optimized system startup time
-
-- LibreOffice uses Qt6 GPU acceleration
+   - Optimized system startup time
+   - LibreOffice now uses Qt6 GPU acceleration
