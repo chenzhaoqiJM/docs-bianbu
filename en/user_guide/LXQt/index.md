@@ -23,3 +23,7 @@ The Bianbu LXQt User Guide provides documentation for using the LXQt desktop env
 ## Guide
 
 - [Remote Desktop Access Guide](K1_Remote_Connect.md)
+
+## Troubleshooting
+
+- [FAQ](K1_FAQ.md)

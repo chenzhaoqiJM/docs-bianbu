@@ -1,6 +1,6 @@
 # 常见问题解答（FAQ）
 
-本文档记录使用 MUSE Pi Pro 开发板进行远程连接时的常见问题及解决方法。
+本文档记录使用 MUSE Pi Pro 开发板过程中的常见问题及解决方法，涵盖烧录、供电和 WiFi 连接等场景。
 ---
 
 ## 烧录问题
@@ -15,9 +15,9 @@
 
 在点击"开始烧录"按钮前，确保以下准备工作已完成：
 
-**Step1: 开发板进入烧录模式并连接电脑**
+#### Step1: 开发板进入烧录模式并连接电脑
 
-<a id="step1-操作步骤"></a>
+<a id="step1-operation-steps"></a>
 **操作步骤：**
 1. 长按 **FDL** 按键（不要松开）
 2. 同时短按 **RST**（复位）按键（绿灯将会闪烁一次）
@@ -25,7 +25,6 @@
 4. 用数据线连接开发板和电脑
 
 ![开发板示例](static/FAQ4.png)
-![开发板示例](static/FAQ12.png)
 
 **验证是否成功进入烧录模式：**
 
@@ -35,9 +34,8 @@
 - 打开 Titan 工具，点击"刷新设备"或"扫描设备"
 - 能识别到设备（显示设备序列号或"已连接"状态） → 成功
 
-下方为扫描设备成功示例图（扫描设备有值）
+**下方为扫描设备成功示例图（扫描设备有值）**
 ![开发板示例](static/FAQ20.png)
-![开发板示例](static/FAQ19.png)
 
 **方法二：使用系统命令验证**
 
@@ -54,11 +52,10 @@ lsusb
 
 **如果无法识别到设备，按以下顺序排查：**
 
-下方为扫描设备失败示例图（扫描设备为空）
+**下方为扫描设备失败示例图（扫描设备为空）**
 ![开发板示例](static/FAQ21.png)
-![开发板示例](static/FAQ22.png)
 
-1. **重新进入烧录模式**：重复[上述操作步骤](#step1-操作步骤)（长按 FDL + 短按 RST）
+1. **重新进入烧录模式**：重复[上述操作步骤](#step1-operation-steps)（长按 FDL + 短按 RST）
 
 2. **更换电脑 USB 接口**：优先使用主板直连的 USB 口，避免使用 USB Hub 或扩展坞
 
@@ -66,7 +63,7 @@ lsusb
 
 4. **如果以上方法都无效**：可能是硬件故障，联系客服
 
-**Step2: 确认下载的镜像类型与开发板存储类型匹配**
+#### Step2: 确认下载的镜像类型与开发板存储类型匹配
 
 开发板有两种存储方式：
 - **eMMC**：板载闪存（芯片焊在板子上，不可拆卸）→ **MUSE Pi Pro 标准配置使用 eMMC**
@@ -86,7 +83,6 @@ lsusb
 https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianbu
 
 ![下载示例](static/FAQ6.png)
-![下载示例](static/FAQ18.png)
 
 ---
 
@@ -99,13 +95,12 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 报错示例
 
 ![报错示例](static/FAQ29.png)
-![报错示例](static/FAQ30.png)
 
 **原因：** 扫描设备成功后，USB 数据线松动或被拔出，导致设备连接断开
 
 **解决方法：** 
 1. 检查数据线是否插紧
-2. [重新进入烧录模式](#step1-操作步骤)
+2. [重新进入烧录模式](#step1-operation-steps)
 3. 在 Titan 工具中点击"刷新设备"或"扫描设备"
 4. 确认设备识别成功后，**避免触碰数据线**，立即点击"开始烧录"
 
@@ -114,22 +109,20 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 报错示例
 
 ![报错示例](static/FAQ31.png)
-![报错示例](static/FAQ32.png)
 
 **原因：** 扫描设备成功并点击进入烧录成功后，USB 数据线松动，导致设备连接断开
 
 **解决方法：** 
 1. 检查数据线是否插紧
-2. [重新进入烧录模式](#step1-操作步骤)
+2. [重新进入烧录模式](#step1-operation-steps)
 3. 在 Titan 工具中点击"刷新设备"或"扫描设备"
-4. 确认设备识别成功并成功进入烧录后，**避免触碰数据线**，
+4. 确认设备识别成功并成功进入烧录后，**避免触碰数据线**
 
 **问题3: 烧录过程中出现烧写失败**
 
 报错示例
 
 ![报错示例](static/FAQ7.png)
-![报错示例](static/FAQ17.png)
 
 **原因：** 烧录时数据线松动或接触不良
 
@@ -140,7 +133,6 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 报错示例
 
 ![烧写失败示例](static/FAQ10.png)
-![烧写失败示例](static/FAQ16.png)
 
 **原因：** 镜像文件路径包含空格或特殊字符 `()`
 
@@ -157,23 +149,20 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 
 **烧写成功状态**
 
-![示例](static/FAQ27.png)
 ![示例](static/FAQ28.png)
 
 ### **阶段三：烧录成功但系统异常**
 
-> **情况说明：** 若烧录成功后遇到 USB 接口不供电、MIPI 屏幕无显示等问题，可能原因是写号配置错误。请参考下方 [Step1: 确认开发板型号配置正确](#step1-写号配置) 进行排查。
+> **情况说明：** 若烧录成功后，系统能进入，但遇到 USB 接口不供电、MIPI 屏幕无显示等问题，可能原因是写号配置错误。请参考下方步骤进行排查。
 
-<a id="step1-写号配置"></a>
-**Step1: 确认开发板型号配置正确**
-
-![错误示例](static/FAQ8.png)
-![错误示例](static/FAQ13.png)
+#### Step1: 确认开发板型号配置正确
 
 > **重要提示**：切勿随意进行写号
 
 **错误示例：**
 - 开发板实际是 **MUSE-Pi-Pro**，却在 Titan 中选择了 **MUSE-Pi** ← **错误！**
+
+![错误示例](static/FAQ8.png)
 
 **随意写号的后果：**
 - USB 接口不供电
@@ -183,20 +172,37 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 
 **若已经写号错误，如何恢复？**
 
-1. **重新进入烧录模式**：[按照 Step1 操作步骤](#step1-操作步骤)进入烧录模式
-2. **扫描设备**在写号工具当中填写正确的值并选择正确的存储介质（若不知道具体的值与存储介质，可询问客服）
+1. **重新进入烧录模式**：[按照 Step1 操作步骤](#step1-operation-steps)进入烧录模式
+2. **读号**：在 Titan 工具中点击"读号"按钮，读取当前设备信息
 
-![示例](static/FAQ25.png)
-![示例](static/FAQ26.png)
+   **读号成功示例：**
 
+   ![读号成功示例](static/FAQ26.png)
 
-3. **重新烧录镜像**
+   **读号失败（Linux 系统）：**
+
+   Linux 系统下读号失败的常见原因是当前用户对 USB 设备节点没有写权限，导致 Titan 工具无法与设备通信。
+   ![读号失败示例](static/FAQ27.png)
+
+   **解决方法：** 在终端进入 Titan 工具所在目录，使用 `sudo` 启动 Titan 工具：
+
+   ```bash
+   cd ~/Downloads
+   sudo ./titantools_for_linux-2.2.0-Rc.AppImage --no-sandbox
+   ```
+
+   再次点击"读号"即可成功。
+
+3. **写号**：在写号工具中填写正确的型号值并选择正确的存储介质，点击开始写号（若不知道具体的值与存储介质，可询问客服）
+
+   ![写号示例](static/FAQ40.png)
+
 4. **验证恢复**：
-- USB 接口供电
-- MIPI 屏幕显示
-- 系统正常启动
+   - USB 接口供电
+   - MIPI 屏幕显示
+   - 系统正常启动
 
-> **重要提示**：写号时请勿插拔usb线
+> **重要提示**：读号写号时请勿插拔 USB 线
 
 **如果以上方法都无效**：可能是硬件故障，联系淘宝客服
 
@@ -211,7 +217,6 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 - **基础使用**（系统启动、轻量任务）：**5V/2A** 即可满足需求
 - **满负荷运行**（高性能计算、多外设同时工作）：推荐使用 **12V/3A** 电源适配器
 
-![电源规格示例](static/FAQ1.png)
 
 > **注意**：
 > - 使用电脑 USB 口供电（通常仅 5V/0.5A~0.9A）可能导致系统不稳定或无法启动
@@ -232,6 +237,7 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 天线接口位于开发板上，标有 **ANTENNA** 字样，连接对应的外置天线即可。
 
 ![开发板天线接口位置示例](static/FAQ2.png)
+![开发板天线接口位置示例](static/FAQ30.png)
 
 > 如果暂无天线，推荐改用**有线网络**（网线连接）替代，稳定性更好。
 

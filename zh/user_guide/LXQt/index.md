@@ -23,3 +23,7 @@ Bianbu LXQt 用户指南包含以下内容：
 ## 指南
 
 - [远程桌面操作指南](K1_Remote_Connect.md)
+
+## 故障排查
+
+- [常见问题解答](K1_FAQ.md)
