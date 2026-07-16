@@ -15,7 +15,7 @@
 
 在点击"开始烧录"按钮前，确保以下准备工作已完成：
 
-**Step1: 开发板进入烧录模式并连接电脑**
+#### Step1: 开发板进入烧录模式并连接电脑
 
 <a id="step1-operation-steps"></a>
 **操作步骤：**
@@ -63,7 +63,7 @@ lsusb
 
 4. **如果以上方法都无效**：可能是硬件故障，联系客服
 
-**Step2: 确认下载的镜像类型与开发板存储类型匹配**
+#### Step2: 确认下载的镜像类型与开发板存储类型匹配
 
 开发板有两种存储方式：
 - **eMMC**：板载闪存（芯片焊在板子上，不可拆卸）→ **MUSE Pi Pro 标准配置使用 eMMC**
@@ -156,7 +156,7 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 > **情况说明：** 若烧录成功后遇到 USB 接口不供电、MIPI 屏幕无显示等问题，可能原因是写号配置错误。请参考下方 [Step1: 确认开发板型号配置正确](#step1-board-model-config) 进行排查。
 
 <a id="step1-board-model-config"></a>
-**Step1: 确认开发板型号配置正确**
+#### Step1: 确认开发板型号配置正确
 
 ![错误示例](static/FAQ8.png)
 
@@ -200,7 +200,6 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 - **基础使用**（系统启动、轻量任务）：**5V/2A** 即可满足需求
 - **满负荷运行**（高性能计算、多外设同时工作）：推荐使用 **12V/3A** 电源适配器
 
-![电源规格示例](static/FAQ1.png)
 
 > **注意**：
 > - 使用电脑 USB 口供电（通常仅 5V/0.5A~0.9A）可能导致系统不稳定或无法启动

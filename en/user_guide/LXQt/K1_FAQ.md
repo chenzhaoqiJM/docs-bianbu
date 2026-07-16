@@ -15,7 +15,7 @@ This document records common issues and solutions when using the MUSE Pi Pro dev
 
 Before clicking the "Start Flashing" button, make sure the following preparations are complete:
 
-**Step 1: Put the board into flashing mode and connect it to the computer**
+#### Step 1: Put the board into flashing mode and connect it to the computer
 
 <a id="step1-operation-steps"></a>
 **Operation steps:**
@@ -63,7 +63,7 @@ Example of a failed device scan (device list is empty) shown below
 
 4. **If none of the above works**: This may be a hardware fault — contact customer support
 
-**Step 2: Confirm that the downloaded image type matches the board's storage type**
+#### Step 2: Confirm that the downloaded image type matches the board's storage type
 
 The board supports two storage types:
 - **eMMC**: Onboard flash storage (soldered to the board, not removable) → **The standard MUSE Pi Pro configuration uses eMMC**
@@ -156,7 +156,7 @@ Error example
 > **Situation:** If, after a successful flash, you encounter issues such as the USB port not providing power or the MIPI screen showing nothing, the likely cause is an incorrect board model configuration. Please refer to [Step 1: Confirm the board model configuration is correct](#step1-board-model-config) below to troubleshoot.
 
 <a id="step1-board-model-config"></a>
-**Step 1: Confirm the board model configuration is correct**
+#### Step 1: Confirm the board model configuration is correct
 
 ![Error example](static/FAQ13.png)
 
@@ -198,8 +198,6 @@ Error example
 
 - **Basic use** (system boot, light workloads): **5V/2A** is sufficient
 - **Full-load operation** (high-performance computing, multiple peripherals at once): a **12V/3A** power adapter is recommended
-
-![Example](static/FAQ1.png)
 
 > **Note**:
 > - Powering the board from a computer's USB port (typically only 5V/0.5A~0.9A) may cause the system to become unstable or fail to boot
