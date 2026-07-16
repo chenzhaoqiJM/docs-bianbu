@@ -4,6 +4,8 @@ sidebar_position: 5
 
 # Remote Desktop Access Guide
 
+> Having trouble? See the [FAQ](K1_FAQ.md), which covers power adapter specifications, flashing troubleshooting, and WiFi antenna connection.
+
 This guide explains how to remotely access the MUSE Pi Pro development board desktop from an x86 Ubuntu 24.04 or Windows 11 host machine.
 
 The overall process consists of three stages:
@@ -86,6 +88,8 @@ The output will display `<remote_ip>`:
 <a id="ubuntu-wifi-scene2"></a>
 
 ##### Scenario 2: Board Not Connected via Ethernet (Wi-Fi Setup Required)
+
+> ⚠️ **Important**: Before using WiFi, make sure an antenna is connected to the board's antenna connector. Otherwise, the board may fail to detect any WiFi networks, or the signal may be extremely weak.
 
 **Step 1:** Run the following command:
 
@@ -454,6 +458,8 @@ The output will display `<remote_ip>`:
 <a id="windows-wifi-scene2"></a>
 
 ##### Scenario 2: Board Not Connected via Ethernet (Wi-Fi Setup Required)
+
+> ⚠️ **Important**: Before using WiFi, make sure an antenna is connected to the board's antenna connector. Otherwise, the board may fail to detect any WiFi networks, or the signal may be extremely weak.
 
 **Step 1:** Run the following command:
 
