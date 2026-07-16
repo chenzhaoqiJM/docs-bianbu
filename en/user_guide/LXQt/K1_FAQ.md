@@ -34,7 +34,7 @@ Verify using either of the following methods:
 - Open the Titan tool and click "Refresh Device" or "Scan Device"
 - If the device is recognized (shows a device serial number or "Connected" status) → Success
 
-Example of a successful device scan (device list is not empty) shown below
+**Example of a successful device scan (device list is not empty) shown below**
 ![Board example](static/FAQ19.png)
 
 **Method 2: Verify using a system command**
@@ -52,7 +52,7 @@ lsusb
 
 **If the device is not recognized, troubleshoot in the following order:**
 
-Example of a failed device scan (device list is empty) shown below
+**Example of a failed device scan (device list is empty) shown below**
 ![Board example](static/FAQ22.png)
 
 1. **Re-enter flashing mode**: Repeat the [operation steps above](#step1-operation-steps) (hold FDL + briefly press RST)
@@ -153,17 +153,16 @@ Error example
 
 ### **Stage 3: Flashing Succeeded but the System Behaves Abnormally**
 
-> **Situation:** If, after a successful flash, you encounter issues such as the USB port not providing power or the MIPI screen showing nothing, the likely cause is an incorrect board model configuration. Please refer to [Step 1: Confirm the board model configuration is correct](#step1-board-model-config) below to troubleshoot.
+> **Situation:** If, after a successful flash, you encounter issues such as the USB port not providing power or the MIPI screen showing nothing, the likely cause is an incorrect board model configuration. Please refer to the steps below to troubleshoot.
 
-<a id="step1-board-model-config"></a>
 #### Step 1: Confirm the board model configuration is correct
-
-![Error example](static/FAQ13.png)
 
 > **Important**: Never configure the board model carelessly
 
 **Example of an error:**
 - The board is actually a **MUSE-Pi-Pro**, but **MUSE-Pi** was selected in Titan ← **Incorrect!**
+
+![Error example](static/FAQ13.png)
 
 **Consequences of an incorrect board model configuration:**
 - USB ports do not provide power
@@ -174,17 +173,37 @@ Error example
 **How to recover from an incorrect board model configuration:**
 
 1. **Re-enter flashing mode**: Follow the [operation steps in Step 1](#step1-operation-steps) to enter flashing mode
-2. **Scan the device**, then enter the correct values and select the correct storage medium in the board model configuration tool (if you don't know the correct values or storage medium, ask customer support)
+2. **Read device number**: Click the "Read Device" button in the Titan tool to read the current device information
 
-![Example](static/FAQ26.png)
+   **Successful read example:**
 
-3. **Re-flash the image**
+   ![Successful read example](static/FAQ42.png)
+
+   **Read failed (Linux only):**
+
+   On Linux, the most common cause of a failed read is that the current user does not have write permission on the USB device node, preventing the Titan tool from communicating with the device.
+
+   ![Read failed example](static/FAQ41.png)
+
+   **Solution:** Open a terminal, navigate to the directory containing the Titan tool, and launch it with `sudo`:
+
+   ```bash
+   cd ~/Downloads
+   sudo ./titantools_for_linux-2.2.0-Rc.AppImage --no-sandbox
+   ```
+
+   Click "Read Device" again — it should succeed.
+
+3. **Write device number**: In the board model configuration tool, enter the correct model value and select the correct storage medium, then click to start writing (if you don't know the correct values or storage medium, ask customer support)
+
+   ![Write device number example](static/FAQ40.png)
+
 4. **Verify recovery**:
-- USB ports provide power
-- The MIPI screen displays correctly
-- The system boots normally
+   - USB ports provide power
+   - The MIPI screen displays correctly
+   - The system boots normally
 
-> **Important**: Do not plug or unplug the USB cable while configuring the board model
+> **Important**: Do not plug or unplug the USB cable while reading or writing the board model
 
 **If none of the above works**: This may be a hardware fault — contact customer support on Taobao
 
@@ -218,6 +237,7 @@ Error example
 The antenna connector is located on the board and is labeled **ANTENNA**. Simply connect the corresponding external antenna.
 
 ![Example of the antenna connector location on the board](static/FAQ2.png)
+![Example of the antenna connector location on the board](static/FAQ25.png)
 
 > If you don't have an antenna available, it is recommended to use a **wired network** (Ethernet cable) instead, for better stability.
 

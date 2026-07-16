@@ -34,7 +34,7 @@
 - 打开 Titan 工具，点击"刷新设备"或"扫描设备"
 - 能识别到设备（显示设备序列号或"已连接"状态） → 成功
 
-下方为扫描设备成功示例图（扫描设备有值）
+**下方为扫描设备成功示例图（扫描设备有值）**
 ![开发板示例](static/FAQ20.png)
 
 **方法二：使用系统命令验证**
@@ -52,7 +52,7 @@ lsusb
 
 **如果无法识别到设备，按以下顺序排查：**
 
-下方为扫描设备失败示例图（扫描设备为空）
+**下方为扫描设备失败示例图（扫描设备为空）**
 ![开发板示例](static/FAQ21.png)
 
 1. **重新进入烧录模式**：重复[上述操作步骤](#step1-operation-steps)（长按 FDL + 短按 RST）
@@ -153,17 +153,16 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 
 ### **阶段三：烧录成功但系统异常**
 
-> **情况说明：** 若烧录成功后遇到 USB 接口不供电、MIPI 屏幕无显示等问题，可能原因是写号配置错误。请参考下方 [Step1: 确认开发板型号配置正确](#step1-board-model-config) 进行排查。
+> **情况说明：** 若烧录成功后，系统能进入，但遇到 USB 接口不供电、MIPI 屏幕无显示等问题，可能原因是写号配置错误。请参考下方步骤进行排查。
 
-<a id="step1-board-model-config"></a>
 #### Step1: 确认开发板型号配置正确
-
-![错误示例](static/FAQ8.png)
 
 > **重要提示**：切勿随意进行写号
 
 **错误示例：**
 - 开发板实际是 **MUSE-Pi-Pro**，却在 Titan 中选择了 **MUSE-Pi** ← **错误！**
+
+![错误示例](static/FAQ8.png)
 
 **随意写号的后果：**
 - USB 接口不供电
@@ -174,18 +173,36 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 **若已经写号错误，如何恢复？**
 
 1. **重新进入烧录模式**：[按照 Step1 操作步骤](#step1-operation-steps)进入烧录模式
-2. **扫描设备**在写号工具当中填写正确的值并选择正确的存储介质（若不知道具体的值与存储介质，可询问客服）
+2. **读号**：在 Titan 工具中点击"读号"按钮，读取当前设备信息
 
-![示例](static/FAQ25.png)
+   **读号成功示例：**
 
+   ![读号成功示例](static/FAQ26.png)
 
-3. **重新烧录镜像**
+   **读号失败（Linux 系统）：**
+
+   Linux 系统下读号失败的常见原因是当前用户对 USB 设备节点没有写权限，导致 Titan 工具无法与设备通信。
+   ![读号失败示例](static/FAQ27.png)
+
+   **解决方法：** 在终端进入 Titan 工具所在目录，使用 `sudo` 启动 Titan 工具：
+
+   ```bash
+   cd ~/Downloads
+   sudo ./titantools_for_linux-2.2.0-Rc.AppImage --no-sandbox
+   ```
+
+   再次点击"读号"即可成功。
+
+3. **写号**：在写号工具中填写正确的型号值并选择正确的存储介质，点击开始写号（若不知道具体的值与存储介质，可询问客服）
+
+   ![写号示例](static/FAQ40.png)
+
 4. **验证恢复**：
-- USB 接口供电
-- MIPI 屏幕显示
-- 系统正常启动
+   - USB 接口供电
+   - MIPI 屏幕显示
+   - 系统正常启动
 
-> **重要提示**：写号时请勿插拔usb线
+> **重要提示**：读号写号时请勿插拔 USB 线
 
 **如果以上方法都无效**：可能是硬件故障，联系淘宝客服
 
@@ -220,6 +237,7 @@ https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianb
 天线接口位于开发板上，标有 **ANTENNA** 字样，连接对应的外置天线即可。
 
 ![开发板天线接口位置示例](static/FAQ2.png)
+![开发板天线接口位置示例](static/FAQ30.png)
 
 > 如果暂无天线，推荐改用**有线网络**（网线连接）替代，稳定性更好。
 
