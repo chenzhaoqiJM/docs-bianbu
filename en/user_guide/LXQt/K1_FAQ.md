@@ -1,244 +1,327 @@
+---
+sidebar_position: 6
+---
+
 # Frequently Asked Questions (FAQ)
 
-This document records common issues and solutions when using the MUSE Pi Pro development board, covering flashing, power supply, and WiFi connection scenarios.
----
-
-## Flashing Issues
-
-### Q: Unable to flash or flashing failed, what should I do?
-
-**A:** Flashing issues need to be troubleshot in stages. Check in the following order:
+This document summarizes common issues and solutions when using the MUSE Pi Pro development board, covering flashing, power supply, and WiFi connection scenarios.
 
 ---
 
-### **Stage 1: Pre-flashing Preparation**
+## Hardware
 
-Before clicking the "Start Flashing" button, make sure the following preparations are complete:
+### Q: What power adapter specification should I use?
 
-#### Step 1: Put the board into flashing mode and connect it to the computer
+> **Note**
+>
+> - A computer's USB port typically only supplies 5V / 0.5A~0.9A, which may cause boot failures or unstable operation.
+> - For serial debugging, it is recommended to use an independent power adapter.
 
-<a id="step1-operation-steps"></a>
-**Operation steps:**
-1. Press and hold the **FDL** button (do not release)
-2. While holding FDL, briefly press the **RST** (reset) button (the green LED will blink once)
-3. Release FDL
-4. Connect the board to the computer with a data cable
+Choose based on your actual use case:
+
+| Use Case | Recommended Specification |
+| --- | --- |
+| System boot, light workloads | 5V / 2A |
+| Full-load operation, multiple peripherals | 12V / 3A |
+
+---
+
+## Flashing
+
+### Q: What should I check before starting to flash?
+
+Before starting to flash, make sure:
+
+- You have entered flashing mode.
+- Titan can recognize the development board.
+- You have downloaded the image that matches the board's storage medium.
+- You are using a USB cable that supports data transfer.
+- The USB cable is securely connected.
+
+---
+
+### Q: How do I enter flashing mode?
+
+Follow these steps.
+
+When the device is powered off:
+
+1. Press and hold the **FDL** (firmware download) button.
+2. Plug in the Type-C cable to connect to the host computer, which powers on the device.
+3. Release the **FDL** button.
+
+When the device is already powered on via USB Type-C:
+
+1. Press and hold the **FDL** (firmware download) button.
+2. Briefly press the **RST** (reset) button.
+3. Release the **FDL** button.
 
 ![Board example](static/FAQ12.png)
 
-**How to verify that flashing mode was entered successfully:**
+---
 
-Verify using either of the following methods:
+### Q: How do I confirm that flashing mode was entered successfully?
 
-**Method 1: Use the Titan tool (recommended, most direct, works on both Windows and Linux)**
-- Open the Titan tool and click "Refresh Device" or "Scan Device"
-- If the device is recognized (shows a device serial number or "Connected" status) → Success
+You can verify using either of the following methods.
 
-**Example of a successful device scan (device list is not empty) shown below**
-![Board example](static/FAQ19.png)
+**Titan (recommended)**
 
-**Method 2: Verify using a system command**
+Open Titan and click **Refresh Device** or **Scan Device**.
 
-**On Linux:**
+If a device serial number or "Connected" status is shown, flashing mode was entered successfully.
+
+![Successful device scan](static/FAQ19.png)
+
+**Linux**
+
+Run:
+
 ```bash
 lsusb
 ```
-- If you see `DFU USB download gadget` → Success
 
-![Board example](static/FAQ23.png)
+If you see:
 
-> **Note for Windows users**: Unlike Linux, Windows has no `lsusb` command, and Device Manager may not show the device due to driver issues. **It is recommended to use Method 1 (Titan tool) directly** — as long as Titan recognizes the device, flashing mode was entered successfully and you can proceed to flash normally.
+```text
+DFU USB download gadget
+```
 
+flashing mode was entered successfully.
 
-**If the device is not recognized, troubleshoot in the following order:**
+![lsusb example](static/FAQ23.png)
 
-**Example of a failed device scan (device list is empty) shown below**
-![Board example](static/FAQ22.png)
-
-1. **Re-enter flashing mode**: Repeat the [operation steps above](#step1-operation-steps) (hold FDL + briefly press RST)
-
-2. **Switch to a different USB port on the computer**: Prefer a port connected directly to the motherboard, and avoid USB hubs or docking stations
-
-3. **Switch to a different data cable**: Use a cable **confirmed to support data transfer** (for example, one that can transfer files with a phone) and try again
-
-4. **If none of the above works**: This may be a hardware fault — contact customer support
-
-#### Step 2: Confirm that the downloaded image type matches the board's storage type
-
-The board supports two storage types:
-- **eMMC**: Onboard flash storage (soldered to the board, not removable) → **The standard MUSE Pi Pro configuration uses eMMC**
-- **SD card**: A removable Micro SD card (inserted into the board's SD card slot)
-
-**How to determine which storage type your board uses:**
-
-> **Note:** An image file whose name includes the `.img` extension is an SD card image; other image files are eMMC images.
-
-1. **Check the back of the board or the product manual**, which usually indicates the storage type
-2. **Check whether an SD card is inserted in the board**:
-   - If the SD card slot is empty → it uses eMMC
-   - If an SD card is inserted → it may be using SD card storage
-3. **If unsure**: The MUSE Pi Pro board uses **eMMC** by default — try downloading the eMMC image first
-
-**Download URL:**
-https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianbu
-
-![Download example](static/FAQ18.png)
+> **Windows users**
+>
+> Windows has no `lsusb` command, and Device Manager may not correctly show the device due to driver issues.
+>
+> It is recommended to use Titan directly to check whether the device is recognized.
 
 ---
 
-### **Stage 2: Issues During Flashing**
+### Q: What should I do if Titan cannot recognize the device?
 
-After clicking "Start Flashing", if you encounter any of the following issues:
+If Titan cannot scan the device:
 
-**Issue 1: Clicking "Start Flashing" immediately pops up "Device does not exist"**
+![Failed scan example](static/FAQ22.png)
 
-Error example
+Check the following in order:
+
+1. Re-enter flashing mode.
+2. Switch to a different USB port on the computer (a port connected directly to the motherboard is recommended).
+3. Switch to a different USB cable that supports data transfer.
+4. If it still cannot be recognized, contact customer support.
+
+---
+
+### Q: How do I choose the correct image?
+
+MUSE Pi Pro supports two storage mediums:
+
+| Storage Type | Image to Use |
+| --- | --- |
+| eMMC (default) | eMMC image |
+| Micro SD card | `.img` image |
+
+You can confirm this by:
+
+- Checking the label on the back of the board or the product manual.
+- Checking whether an SD card is inserted.
+- If unsure, choose the **eMMC image** by default.
+
+Download URL:
+
+<https://www.spacemit.com/community/resources-download/Images%20Collects/K1/Bianbu>
+
+![Image download example](static/FAQ18.png)
+
+---
+
+### Q: After clicking "Start Flashing," it shows "Device does not exist." What should I do?
+
+**Cause**
+
+The USB connection was disconnected, usually because:
+
+- The USB cable is loose.
+- The USB cable was unplugged.
+- The board exited flashing mode.
 
 ![Error example](static/FAQ30.png)
 
-**Cause:** After a successful device scan, the USB data cable became loose or was unplugged, breaking the device connection
+**Solution**
 
-**Solution:**
-1. Check that the data cable is plugged in firmly
-2. [Re-enter flashing mode](#step1-operation-steps)
-3. In the Titan tool, click "Refresh Device" or "Scan Device"
-4. Once the device is recognized successfully, **avoid touching the data cable** and immediately click "Start Flashing"
+1. Check that the USB cable is securely connected.
+2. Re-enter flashing mode.
+3. In Titan, click **Refresh Device** or **Scan Device**.
+4. Once the device is recognized, start flashing immediately and avoid touching the USB cable.
 
-**Issue 2: Clicking "Start Flashing" successfully enters flashing but fails immediately**
+---
 
-Error example
+### Q: What should I do if flashing fails immediately after clicking "Start Flashing"?
+
+**Cause**
+
+The USB connection was interrupted right after flashing started.
 
 ![Error example](static/FAQ32.png)
 
-**Cause:** After a successful device scan and successfully entering the flashing process, the USB data cable became loose, breaking the device connection
+**Solution**
 
-**Solution:**
-1. Check that the data cable is plugged in firmly
-2. [Re-enter flashing mode](#step1-operation-steps)
-3. In the Titan tool, click "Refresh Device" or "Scan Device"
-4. Once the device is recognized and flashing has started successfully, **avoid touching the data cable**
+- Check that the USB cable is securely connected.
+- Re-enter flashing mode.
+- Re-scan the device.
+- Avoid moving the board or the USB cable during flashing.
 
-**Issue 3: Flashing fails partway through**
+---
 
-Error example
+### Q: What should I do if flashing fails partway through with a write error?
 
-![Error example](static/FAQ17.png)
+**Cause**
 
-**Cause:** The data cable became loose or made poor contact during flashing
+Poor USB contact.
 
-**Solution:** Unplug and reconnect the data cable, making sure both ends are firmly seated
+![Flashing failure](static/FAQ17.png)
 
-**Issue 4: Clicking flash immediately reports "Flashing failed" with no further details**
+**Solution**
 
-Error example
+Unplug and reconnect the USB cable, making sure both ends are securely connected.
 
-![Flashing failure example](static/FAQ16.png)
+---
 
-**Cause:** The image file path contains spaces or special characters `()`
+### Q: What should I do if flashing fails with no detailed error message?
 
-**Solution:** Choose a file path without special characters
+**Cause**
 
-**Example of an incorrect path:**
-- `D:\Program Files (x86)\images\firmware.zip` ← contains spaces and parentheses (special characters)
+The image file path contains spaces or special characters, such as:
 
-![Path example](static/FAQ9.png)
+- Spaces
+- `(`
+- `)`
 
-**Example of a correct path:**
+Incorrect example:
 
-![Path example](static/FAQ24.png)
+```text
+D:\Program Files (x86)\images\firmware.zip
+```
 
-**Successful flashing status**
+![Incorrect path](static/FAQ9.png)
 
-![Example](static/FAQ27.png)
+**Solution**
 
-### **Stage 3: Flashing Succeeded but the System Behaves Abnormally**
+Move the image to a directory without spaces or special characters, then select it again.
 
-> **Situation:** If, after a successful flash, you encounter issues such as the USB port not providing power or the MIPI screen showing nothing, the likely cause is an incorrect board model configuration. Please refer to the steps below to troubleshoot.
+Correct example:
 
-#### Step 1: Confirm the board model configuration is correct
+![Correct path](static/FAQ24.png)
 
-> **Important**: Never configure the board model carelessly
+---
 
-**Example of an error:**
-- The board is actually a **MUSE-Pi-Pro**, but **MUSE-Pi** was selected in Titan ← **Incorrect!**
+### Q: After flashing succeeds, the USB port has no power, the MIPI screen shows nothing, or the system behaves abnormally. What should I do?
+
+If any of the following issues occur after a successful flash:
+
+- The USB port does not provide power.
+- The MIPI screen shows nothing.
+- The system fails to boot normally.
+- Some hardware functions behave abnormally.
+
+This is usually caused by an incorrect board model configuration.
+
+Incorrect example:
+
+The board's actual model is **MUSE-Pi-Pro**, but **MUSE-Pi** was selected during configuration.
 
 ![Error example](static/FAQ13.png)
 
-**Consequences of an incorrect board model configuration:**
-- USB ports do not provide power
-- The MIPI screen shows nothing
-- The system may fail to boot
-- Some hardware functions may fail
-
-**How to recover from an incorrect board model configuration:**
-
-1. **Re-enter flashing mode**: Follow the [operation steps in Step 1](#step1-operation-steps) to enter flashing mode
-2. **Read device number**: Click the "Read Device" button in the Titan tool to read the current device information
-
-   **Successful read example:**
-
-   ![Successful read example](static/FAQ42.png)
-
-   **Read failed (Linux only):**
-
-   On Linux, the most common cause of a failed read is that the current user does not have write permission on the USB device node, preventing the Titan tool from communicating with the device.
-
-   ![Read failed example](static/FAQ41.png)
-
-   **Solution:** Open a terminal, navigate to the directory containing the Titan tool, and launch it with `sudo`:
-
-   ```bash
-   cd ~/Downloads
-   sudo ./titantools_for_linux-2.2.0-Rc.AppImage --no-sandbox
-   ```
-
-   Click "Read Device" again — it should succeed.
-
-3. **Write device number**: In the board model configuration tool, enter the correct model value and select the correct storage medium, then click to start writing (if you don't know the correct values or storage medium, ask customer support)
-
-   ![Write device number example](static/FAQ40.png)
-
-4. **Verify recovery**:
-   - USB ports provide power
-   - The MIPI screen displays correctly
-   - The system boots normally
-
-> **Important**: Do not plug or unplug the USB cable while reading or writing the board model
-
-**If none of the above works**: This may be a hardware fault — contact customer support on Taobao
+> **Note**
+>
+> Configuring the board model is not recommended unless necessary.
 
 ---
 
-## Hardware and Power Supply
+### Q: How do I recover from an incorrect board model configuration?
 
-### Q: How do I choose the right power adapter?
+**Step 1: Re-enter flashing mode**
 
-**A:** Choose a power adapter that matches your use case:
+Refer to the earlier section "How do I enter flashing mode?"
 
-- **Basic use** (system boot, light workloads): **5V/2A** is sufficient
-- **Full-load operation** (high-performance computing, multiple peripherals at once): a **12V/3A** power adapter is recommended
+**Step 2: Read the device information**
 
-> **Note**:
-> - Powering the board from a computer's USB port (typically only 5V/0.5A~0.9A) may cause the system to become unstable or fail to boot
-> - When debugging over a serial connection, it is recommended to use an independent power adapter to avoid system issues caused by insufficient power from the computer's USB port
+In Titan, click **Read**.
+
+Titan interface successful read example:
+
+![Successful read](static/FAQ42.png)
+
+Serial communication interface successful read example:
+
+![Successful read](static/FAQ44.png)
+
+If reading fails on Linux:
+
+![Failed read](static/FAQ41.png)
+
+This is usually due to insufficient USB permissions.
+
+Run:
+
+```bash
+cd ~/path-to-titan-tool
+sudo ./titantools_for_linux-2.2.0-Rc.AppImage --no-sandbox
+```
+
+Restart Titan and read again.
+
+**Step 3: Write the device information**
+
+Fill in the correct:
+
+- Board model.
+- Storage medium.
+
+If unsure, contact customer support.
+
+Titan interface successful write example:
+
+![Write example](static/FAQ40.png)
+
+Serial communication interface successful write example:
+
+![Write example](static/FAQ45.png)
+
+> **Note**
+>
+> Do not plug or unplug the USB cable while reading or writing device information.
+
+**Step 4: Verify the recovery**
+
+Confirm that the following functions have returned to normal:
+
+- The USB port provides power normally.
+- The MIPI screen displays correctly.
+- The system boots normally.
+
+If the issue persists, contact customer support.
 
 ---
 
+## WiFi
 
-## WiFi Connection
+### Q: Is an antenna required before using WiFi?
 
-### Q: Does the board need an antenna connected before using WiFi?
+**Yes, it is required.**
 
-**A:** **Yes, an antenna is required.** The WiFi module transmits and receives electromagnetic signals through the antenna. Without an antenna:
+Without an antenna connected, you may experience:
 
-- The board may fail to detect any WiFi networks, or detect them with an extremely weak signal
-- Even if a connection is established, the speed will be very low and highly unstable, with frequent disconnections
+- Inability to detect any WiFi networks.
+- Extremely weak WiFi signal.
+- Unstable connections.
+- Frequent disconnections.
 
-The antenna connector is located on the board and is labeled **ANTENNA**. Simply connect the corresponding external antenna.
+The antenna connector is located at the **ANTENNA** label on the board.
 
-![Example of the antenna connector location on the board](static/FAQ2.png)
-![Example of the antenna connector location on the board](static/FAQ25.png)
+![Antenna location](static/FAQ2.png)
 
-> If you don't have an antenna available, it is recommended to use a **wired network** (Ethernet cable) instead, for better stability.
+![Antenna location](static/FAQ25.png)
 
----
+If you don't have an antenna available, it is recommended to use a wired network connection instead.
