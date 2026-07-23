@@ -19,6 +19,26 @@ Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
 - 使用此源即可安装到后续的 V4.0.x（如 V4.0.1）发布的包。
 - 如需下载源码，请将`Types: deb`改成`Types: deb deb-src`。
 
+## V4.0.4 更新说明
+
+发布日期：2026-7-23
+
+对应的**BSP**版本：[V1.0.5](https://spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
+
+### LXQt桌面主要更新
+
+- 新增会话设置
+- 修复多屏场景下状态栏弹窗显示位置错乱的问题
+
+### 基础组件主要更新
+
+- 修复系统唤醒后mpv播放视频卡住问题
+- 修复部分模块休眠唤醒老化问题
+- 修复lxqt休眠唤醒老化后黑屏问题
+- 修复系统监视器选择CPU颜色后意外退出问题
+- 修复Type-c兼容性导致K3 Pico板无法启动问题
+- 修复K3 Pico OTA过程中黑屏问题
+
 ## V4.0.1 更新说明
 
 发布日期：2026-5-29
